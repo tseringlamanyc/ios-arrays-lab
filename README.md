@@ -7,8 +7,17 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 ## Question 1
 
 Create an array of strings called `colors` that contain "orange", "red", "yellow", "turquoise", and "lavender".
+```
+let colors = ["orange", "red", "yellow", "turquoise", "lavender"]
+let orangeColor = colors[0]
+let yellowColor = colors[2]
+let lavenderColor = colors[colors.count - 1]
+```
 
 Then, using array subscripting and string interpolation, print out the String `"orange, yellow, and lavender are some of my favorite colors"`.
+```
+print("\(orangeColor), \(yellowColor), \(lavenderColor) are some of my favorite colors")
+```
 
 
 ## Question 2
@@ -16,25 +25,56 @@ Then, using array subscripting and string interpolation, print out the String `"
 Remove "Illinois" and "Kansas" from the array below.
 
 `var westernStates = ["California", "Oregon", "Washington", "Idaho", "Illinois", "Kansas"]`
-
+```
+let removedStateKansas = westernStates.popLast()
+let removedStateIllinois = westernStates.popLast()
+print(westernStates)
+```
 
 ## Question 3
 
 Iterate through the array below. For each state, print out the name of the state, a colon, and whether it is or is not **in the continental United States.**
 
 `let moreStates = ["Hawaii", "New Mexico", "Alaska", "Montana", "Texas", "New York", "Florida"]`
+```
+for (index, state) in moreStates.enumerated(){
+    if index == 0 || index == 2 {
+    print("\(state); not the continental state")
+    } else {
+        print("\(state); the continental state")
+}
+}
 
+```
 
 ## Question 4
 
 Print out how many non-whitespace characters are in `myString`:
 
 `let myString = "This is good practice with Strings!"`
+```
+var nonWhiteSpace = 0 
+for (index, char) in myString.enumurated() {
+if char != "\u{0020}" {
+nonWhiteSpace += 1 
+} print(nonWhiteSpace)
+}
+```
 
 Iterate through the array below. For each sentence, print out how many non-whitespace characters are in it.
 
 `let myFavoriteQuotes = ["To be or not to be, that is the question.", "The only source of knowledge is experience.", "Mr. Gorbachev, tear down this wall!", "Four score and twenty years ago..."]`
 
+```
+for sentence in myFavoriteQuotes {
+var nonWhiteSpace = 0
+for char in sentence {
+if char != "\u{0020}"{
+nonWhiteSpace += 1 
+}
+} print(nonWhiteSpace)
+}
+```
 
 ## Question 5
 
@@ -43,6 +83,13 @@ Iterate through `garden` and place any 🌷 that you find into the `basket`. Rep
 ```swift
 var garden = ["dirt","🌷","dirt","🌷","dirt","dirt","🌷","dirt","🌷","dirt"]
 var basket = [String]()
+
+for (index, item) in garden.enumurated() where item == "🌷" {
+basket.append("🌷")
+garden[item] = "dirt"
+}
+print("There are \(basket.count) 🌷 in the basket")
+print(garden)
 ```
 
 ## Question 6
@@ -56,6 +103,13 @@ The below array represents an unfinished batting lineup for a baseball team. **Y
 
 `var battingLineup = ["Reyes", "Jeter", "Ramirez", "Pujols","Griffey","Thomas","Jones", "Rodriguez"]`
 
+```
+battingLineup.append("Suzuki")
+battingLineup[1] = "Tejada"
+battingLineup[battingLineup.count - 3] = "Guerrero"
+
+```
+
 
 ## Question 7
 
@@ -68,6 +122,7 @@ Given an array of Ints, find out if it contains a target number.
 var numbers: [Int]
 
 let target: Int = 32
+
 ```
 
 Ex.1
@@ -89,7 +144,21 @@ target = 3
 
 //false
 ```
+ANSWER
 
+```
+var numbers: [Int]
+let target: Int = 32
+
+for index in numbers {
+  if index == target {
+  print("true")
+} 
+if index != target {
+print("false")
+}
+}
+```
 
 ## Question 8
 
@@ -118,13 +187,20 @@ let arrayOfNumbers: [Int] = (1...100).map{ _ in Int.random(in: 0...200)}.map{Int
 Iterate through `secondListOfNumbers`, and print out all the odd numbers.
 
 `var secondListOfNumbers = [19,13,14,19,101,10000,141,404]`
-
+```
+for num in secondListOfNumbers where num % 2 != 0 {
+print(num, terminator: " ")
+}
+```
 
 ## Question 11
 
 Iterate through `thirdListOfNumbers`, and print out the sum.
 
 `var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]`
+```
+for num in third
+```
 
 
 ## Question 12
@@ -142,6 +218,16 @@ Append every Int that appears in both `listOne` and `listTwo` to the `sharedElem
 var listOne = [28, 64, 7, 96, 13, 32, 94, 11, 80, 68]
 var listTwo = [18, 94, 48, 6, 42, 68, 79, 76, 13, 7]
 var sharedElements = [Int]()
+
+for num1 in listOne {
+   for num2 in listTwo {
+   if num2 == num1 {
+   sharedElements.append(num1)
+}
+}
+}
+
+print("There are \(sharedElements.count) shared elements")
 ```
 
 # Part 2
