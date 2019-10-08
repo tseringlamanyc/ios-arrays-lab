@@ -199,7 +199,10 @@ Iterate through `thirdListOfNumbers`, and print out the sum.
 
 `var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]`
 ```
-for num in third
+var sum = 0 
+for num in thirdListOfNumbers {
+    sum += num 
+} print(sum)
 ```
 
 
@@ -208,7 +211,12 @@ for num in third
 Iterate through `thirdListOfNumbers`, and print out the sum of all the even numbers.
 
 `var thirdListOfNumbers = [11, 26, 49, 61, 25, 40, 74, 3, 22, 23]`
-
+```
+var sum = 0 
+for num in thirdListOfNumbers where num % 2 == 0 {
+sum += num 
+} print(sum)
+```
 
 ## Question 13
 
@@ -239,6 +247,8 @@ Write code such that `noDupeList` has all the same Ints as `dupeFriendlyList`, b
 ```swift
 var dupeFriendlyList = [4,2,6,2,2,6,4,9,2,1]
 var noDupeList: [Int] = []
+
+
 ```
 
 ## Question 2
